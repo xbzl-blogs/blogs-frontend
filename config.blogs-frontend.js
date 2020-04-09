@@ -22,6 +22,8 @@ let htmlWebpackPlugin = new HtmlWebpackPlugin({
 });
 
 var key = "blogs-frontend";
+var imageFileName = '/build/[name].[ext]';
+var fontFileName = '/build/[name].[ext]?[hash]';
 
 module.exports = {
     // 开发模式
@@ -72,14 +74,14 @@ module.exports = {
                     loader: 'json-loader'
                 },
                 // {test: /\.(png|jpg)$/, loader: 'url-loader?limit=8192'}, // inline base64 URLs for <=8k images, direct URLs for the rest
-                // {
-                //     test: /\.(png|jpg|gif)$/,
-                //     loader: 'file-loader?name=' + imageFileName
-                // },
-                // {
-                //     test: /\.(ttf\??|eot\??|svg\??|woff\??|woff2\??)/,
-                //     loader: "file-loader?name=" + fontFileName
-                // }
+                {
+                    test: /\.(png|jpg|gif)$/,
+                    loader: 'file-loader?name=' + imageFileName
+                },
+                {
+                    test: /\.(ttf\??|eot\??|svg\??|woff\??|woff2\??)/,
+                    loader: "file-loader?name=" + fontFileName
+                }
             ]
     },
     // 装载虚拟目录插件
@@ -91,10 +93,10 @@ module.exports = {
             } }),
         new ExtractTextPlugin("build/[name].css"),
         new webpack.optimize.DedupePlugin(),
-        new webpack.optimize.CommonsChunkPlugin({
-            names: ['main', 'vendor', 'base'], //注意：最后的一个文件，在html中必须第一个加载
-            filename: "build/[name].css"
-        }),
+        // new webpack.optimize.CommonsChunkPlugin({
+        //     names: ['main', 'vendor', 'base'], //注意：最后的一个文件，在html中必须第一个加载
+        //     filename: "build/[name].css"
+        // }),
         new webpack.optimize.CommonsChunkPlugin({
             names: ['modernizr', 'main', 'plugins', 'jquery-3.2.1.min'], //注意：最后的一个文件，在html中必须第一个加载
             filename: "build/[name].js"
