@@ -8,6 +8,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var webpack = require('webpack');
 
 // 负责将html文档虚拟到根目录下
 let htmlWebpackPlugin = new HtmlWebpackPlugin({
@@ -20,6 +21,8 @@ let htmlWebpackPlugin = new HtmlWebpackPlugin({
     // template: path.resolve(__dirname, './apps/blogs-frontend/index.html')
 });
 
+var key = "blogs-frontend";
+
 module.exports = {
     // 开发模式
     mode: 'development',
@@ -27,13 +30,15 @@ module.exports = {
     entry: './index-blogs-frontend.js',
     // 配置出口文件
     output: {
-        path: path.resolve(__dirname, 'dist'),   //文件所在目录
-        filename: 'main.js'    //文件名称
+        path: path.join(__dirname, 'blogs') //编译后的输出路径
+        , filename: '/build/bundle.js',
+        publicPath:  'blogs' //服务端的路径
+        , chunkFilename: "/build/[name]_[hash].chunk.js"
     },
     // 配置开发服务器, 并配置自动刷新
     devServer: {
         // 根目录下dist为基本目录
-        contentBase: path.join(__dirname, 'dist'),
+        contentBase: path.join(__dirname, 'blogs'),
         // 设置是否自动压缩
         compress: true,
         // 服务端口为1208（可随意设置，但不要跟其他项目的相同）
@@ -78,5 +83,21 @@ module.exports = {
             ]
     },
     // 装载虚拟目录插件
-    plugins: [htmlWebpackPlugin],
-}
+    plugins: [
+        htmlWebpackPlugin,
+        new webpack.DefinePlugin({ 'process.env.NODE_ENV': '"production"' }),
+        new webpack.DefinePlugin({ 'process.env': {
+                YYLIB_ENV: JSON.stringify(process.env.NODE_ENV)
+            } }),
+        new ExtractTextPlugin("build/[name].css"),
+        new webpack.optimize.DedupePlugin(),
+        new webpack.optimize.CommonsChunkPlugin({
+            names: ['main', 'vendor', 'base'], //注意：最后的一个文件，在html中必须第一个加载
+            filename: "build/[name].css"
+        }),
+        new webpack.optimize.CommonsChunkPlugin({
+            names: ['modernizr', 'main', 'plugins', 'jquery-3.2.1.min'], //注意：最后的一个文件，在html中必须第一个加载
+            filename: "build/[name].js"
+        })
+    ],
+};
