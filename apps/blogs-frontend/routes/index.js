@@ -19,6 +19,9 @@ var PageRoutes = require('./PageRoutes');//页面路由
 module.exports = (
     <Route path="/" component={Home}>
         <IndexRoute component={Home}/>
+        <Route path="/home" component={Home}>
+
+        </Route>
     </Route>
 
     );
