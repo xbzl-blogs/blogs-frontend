@@ -17,7 +17,8 @@ import '../public/css/vendor.css';
 
 var data = {
     id:"null",
-    name:"出错了"
+    name:"出错了",
+    value:"出错了"
 };
 
 
@@ -60,9 +61,7 @@ var WaterfallElements = React.createClass({
                 </div>
                 <div className="entry__excerpt">
                     <p>
-                        Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit
-                        id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit
-                        nisi officia aute incididunt velit sint in aliqua...
+                        {this.getInitialState().data.value}
                     </p>
                 </div>
             </div>

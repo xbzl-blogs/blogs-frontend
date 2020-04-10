@@ -33,11 +33,18 @@ const getWaterfallElements = function (waterfallElementsMapData) {
 
     let data = {
         id:'1234567890',
-        name:'大新闻1'
+        name:'大新闻1',
+        value:'Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua...'
+    };
+
+    let data2 = {
+        id:'1234567890',
+        name:'大新闻2',
+        value:'Good design is making something intelligible and memorable. Great design is making something memorable and meaningful.Dieter Rams Good design is making something intelligible and memorable. Great design is making something memorable and meaningful.Dieter Ram'
     };
 
     waterfallElementsMapData.push(<WaterfallElements data={data}/>);
-    waterfallElementsMapData.push(<WaterfallElements/>);
+    waterfallElementsMapData.push(<WaterfallElements data={data2}/>);
     waterfallElementsMapData.push(<WaterfallElements/>);
     waterfallElementsMapData.push(<WaterfallElements/>);
     waterfallElementsMapData.push(<WaterfallElements/>);
