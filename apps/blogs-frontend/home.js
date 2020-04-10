@@ -10,14 +10,53 @@
 import {Link} from "react-router";
 var React = require('react');
 
+
+
 import './public/css/base.css';
 import './public/css/main.css';
 import './public/css/vendor.css';
 
+var WaterfallElements = require('./pub/waterfallElements');
+
 var whiteroadBlogsLogoSvg = require('./public/images/whiteroadBlogsLogoSvg.svg');
 
+const homeOnClick = function () {
+    console.log("进入首页点击事件，刷新数据！");
+};
+
+/**
+ * 获取数据并使用瀑布流元素加载
+ */
+const getWaterfallElements = function (waterfallElementsMapData) {
+
+    console.log("getWaterfallElements方法被调用，这里加载后端数据进行写入瀑布流元素map！");
+
+    let data = {
+        id:'1234567890',
+        name:'大新闻1'
+    };
+
+    waterfallElementsMapData.push(<WaterfallElements data={data}/>);
+    waterfallElementsMapData.push(<WaterfallElements/>);
+    waterfallElementsMapData.push(<WaterfallElements/>);
+    waterfallElementsMapData.push(<WaterfallElements/>);
+    waterfallElementsMapData.push(<WaterfallElements/>);
+    waterfallElementsMapData.push(<WaterfallElements/>);
+    waterfallElementsMapData.push(<WaterfallElements/>);
+    waterfallElementsMapData.push(<WaterfallElements/>);
+};
 
 var Home = React.createClass({
+
+    getInitialState:function(){
+        let waterfallElementsMapData = [];
+        getWaterfallElements(waterfallElementsMapData);
+
+        return {
+            waterfallElementsMapData:waterfallElementsMapData
+        };
+    },
+
     render: function () {
         return (
             <div>
@@ -36,7 +75,7 @@ var Home = React.createClass({
             <header className="s-header">
                 <div className="header__top">
                     <div className="header__logo">
-                        <Link className="site-logo" to="/home">
+                        <Link className="site-logo" to="/home" onClick={homeOnClick}>
                             <img src={whiteroadBlogsLogoSvg} alt="Homepage" />
                         </Link>
                     </div>
@@ -66,7 +105,9 @@ var Home = React.createClass({
                 <nav className="header__nav-wrap">
 
                     <ul className="header__nav">
-                        <li className="current"><a href="index.html" title="">Home</a></li>
+                        <li className="current">
+                            <Link to="/home" onClick={homeOnClick}>Home</Link>
+                        </li>
                         <li className="has-children">
                             <a href="#0" title="">Categories</a>
                             <ul className="sub-menu">
@@ -92,34 +133,27 @@ var Home = React.createClass({
                         <li><a href="page-contact.html" title="">Contact</a></li>
                     </ul>
                     {/*end header__nav*/}
-
-                    <ul className="header__social">
-                        <li className="ss-facebook">
-                            <a href="">
-                                <span className="screen-reader-text">Facebook</span>
-                            </a>
-                        </li>
-                        <li className="ss-twitter">
-                            <a href="#0">
-                                <span className="screen-reader-text">Twitter</span>
-                            </a>
-                        </li>
-                        <li className="ss-dribbble">
-                            <a href="#0">
-                                <span className="screen-reader-text">Dribbble</span>
-                            </a>
-                        </li>
-                        <li className="ss-pinterest">
-                            <a href="#0">
-                                <span className="screen-reader-text">Behance</span>
-                            </a>
-                        </li>
-                    </ul>
-
                 </nav>
                 {/*end header__nav-wrap*/}
-
             </header>
+
+
+                <div className="s-content">
+
+                    <div className="masonry-wrap">
+
+                        <div className="masonry">
+
+                            <div className="grid-sizer"></div>
+
+                            {this.getInitialState().waterfallElementsMapData}
+
+                        </div>
+
+                    </div>
+
+
+                </div>
             </div></div>
         );
     }
