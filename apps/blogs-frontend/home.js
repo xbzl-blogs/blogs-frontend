@@ -14,7 +14,7 @@ import './public/css/base.css';
 import './public/css/main.css';
 import './public/css/vendor.css';
 
-var homepageLogoSvg = require('./public/images/logo.svg');
+var whiteroadBlogsLogoSvg = require('./public/images/whiteroadBlogsLogoSvg.svg');
 
 
 var Home = React.createClass({
@@ -37,7 +37,7 @@ var Home = React.createClass({
                 <div className="header__top">
                     <div className="header__logo">
                         <Link className="site-logo" to="/home">
-                            <img src={homepageLogoSvg} alt="Homepage" />
+                            <img src={whiteroadBlogsLogoSvg} alt="Homepage" />
                         </Link>
                     </div>
 
