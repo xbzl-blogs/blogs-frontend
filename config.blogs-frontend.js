@@ -25,6 +25,9 @@ var key = "blogs-frontend";
 var imageFileName = '/build/[name].[ext]';
 var fontFileName = '/build/[name].[ext]?[hash]';
 
+
+
+
 module.exports = {
     // 开发模式
     mode: 'development',
@@ -33,20 +36,20 @@ module.exports = {
     // 配置出口文件
     output: {
         path: path.join(__dirname, 'blogs') //编译后的输出路径
-        , filename: '/build/bundle.js',
-        publicPath:  'blogs' //服务端的路径
-        , chunkFilename: "/build/[name]_[hash].chunk.js"
+        , filename: '[name]/build/bundle.js',
+        // publicPath:  'blogs' //服务端的路径
+        // , chunkFilename: "/build/[name]_[hash].chunk.js"
     },
     // 配置开发服务器, 并配置自动刷新
     devServer: {
         // 根目录下dist为基本目录
-        contentBase: path.join(__dirname, 'blogs'),
+        // contentBase: path.join(__dirname, 'blogs'),
         // 设置是否自动压缩
-        compress: true,
+        // compress: true,
         // 服务端口为1208（可随意设置，但不要跟其他项目的相同）
         port: 8053,
         // 是否自动打开浏览器
-        open: true
+        // open: true
     },
     resolve: {
         extensions:  ['', '.js', '.jsx', '.json'],
