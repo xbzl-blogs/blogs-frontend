@@ -9,12 +9,30 @@
  */
 
 var React = require('react');
-
+var $ = require('jquery');
 require('./css/style.css');
+
+var urls = require('../pub/RestUrl').ADMIN_LOGIN;
 
 
 const loginButtonOnClick = function () {
     console.log("点击登录");
+    var data = {
+        "pswPassword":"123456zdzzz",
+        "id":"123456"
+    };
+    $.ajax({
+        url:urls.LOGIN,
+        data:JSON.stringify(data),
+        async:true,
+        type:'POST',
+        dataType: "json",
+        contentType:'application/json;charset=utf-8',
+        success:function (result) {
+            console.log(result);
+        }
+    });
+
 };
 
 var AdminLogin = React.createClass({

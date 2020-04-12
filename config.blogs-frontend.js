@@ -47,7 +47,7 @@ module.exports = {
         // 设置是否自动压缩
         // compress: true,
         // 服务端口为1208（可随意设置，但不要跟其他项目的相同）
-        port: 8053,
+        port: 1209,
         // 是否自动打开浏览器
         // open: true
     },
