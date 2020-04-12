@@ -1,3 +1,5 @@
+var $ = require('jquery');
+
 $(function() {
 
    $(".input input").focus(function() {
