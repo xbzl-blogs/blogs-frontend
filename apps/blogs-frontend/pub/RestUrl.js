@@ -14,7 +14,10 @@ var ROOT_PATH = "/blogs-web/";
 //管理员登录
 var ADMIN_LOGIN = {
     LOGIN_INIT : ADDR + ROOT_PATH + "PasswordController/insertInit",
-    LOGIN : ADDR + ROOT_PATH + "PasswordController/login"
+    LOGIN : ADDR + ROOT_PATH + "PasswordController/login",
+
+    PATH_LOGIN : "/whiteroadAdminLogin/login",
+    PATH_MENU:"/whiteroadAdminLogin/menu"
 };
 
 module.exports = {

@@ -94,7 +94,7 @@ module.exports = {
         new webpack.DefinePlugin({ 'process.env': {
                 YYLIB_ENV: JSON.stringify(process.env.NODE_ENV)
             } }),
-        new ExtractTextPlugin("build/[name].css"),
+        new ExtractTextPlugin("build/css/[name].css"),
         new webpack.optimize.DedupePlugin(),
         // new webpack.optimize.CommonsChunkPlugin({
         //     names: ['main', 'vendor', 'base'], //注意：最后的一个文件，在html中必须第一个加载
