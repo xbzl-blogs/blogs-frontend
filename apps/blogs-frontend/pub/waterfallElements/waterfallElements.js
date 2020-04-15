@@ -12,6 +12,7 @@ import QuoteWaterfallElement from "./quoteWaterfallElement";
 import StandardWaterfallElement from './standardWaterfallElement';
 import AudioWaterfallElement from './audioWaterfallElement';
 import VideoWaterfallElement from './videoWaterfallElement';
+import LinkWaterfallElement from './linkWaterfallElement';
 import '../../public/css/base.css';
 import '../../public/css/main.css';
 import '../../public/css/vendor.css';
@@ -38,7 +39,9 @@ class WaterfallElements extends React.Component{
                         ? <AudioWaterfallElement data={this.state.data}/>
                         : this.state.type === 4
                             ? <VideoWaterfallElement data={this.state.data}/>
-                            :null
+                            :this.state.type === 5
+                                ? <LinkWaterfallElement data={this.state.data}/>
+                                :null
         );
     }
 }
