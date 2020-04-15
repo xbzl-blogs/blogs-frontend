@@ -16,24 +16,38 @@ import '../public/css/vendor.css';
 
 
 var data = {
-    id:"null",
-    name:"出错了",
-    value:"出错了"
+    id: '1',
+    articleType: '出错了！',
+    articleTime: '出错了！',
+    articleUserName: '出错了！',
+    contentTitle: '出错了！',
+    contentSubhead: '出错了！',
+    contentTags: '出错了！',
+    contentCategory: '出错了！',
+    contentIntro: '出错了！',
+    contents: null
 };
 
 
-var WaterfallElements = React.createClass({
+class WaterfallElements extends React.Component{
 
-    getInitialState:function(){
-        return {
-            data:this.props.data || data
-        };
-    },
-    componentDidMount:function(){
-        let data = this.props.data;
-        console.log(data);
-    },
-    render: function () {
+    constructor(props){
+        super(props);
+        this.state = {
+            id: props.data.id || data.id,
+            articleType: props.data.articleType || data.articleType,
+            articleTime: props.data.articleTime || data.articleTime,
+            articleUserName: props.data.articleUserName || data.articleUserName,
+            contentTitle: props.data.contentTitle || data.contentTitle,
+            contentSubhead: props.data.contentSubhead || data.contentSubhead,
+            contentTags: props.data.contentTags || data.contentTags,
+            contentCategory: props.data.contentCategory || data.contentCategory,
+            contentIntro: props.data.contentIntro || data.contentIntro,
+            contents: props.data.contents || data.contents
+        }
+    }
+
+    render () {
         return(<article className="masonry__brick entry format-standard animate-this">
 
             <div className="entry__thumb">
@@ -47,21 +61,21 @@ var WaterfallElements = React.createClass({
             <div className="entry__text">
                 <div className="entry__header">
 
-                    <h2 className="entry__title"><a href="single-standard.html">{this.getInitialState().data.name}</a></h2>
+                    <h2 className="entry__title"><a href="single-standard.html">{this.state.contentTitle}</a></h2>
                     <div className="entry__meta">
                                     <span className="entry__meta-cat">
-                                        <a href="category.html">Design</a>
+                                        <a href="category.html">{this.state.articleUserName}</a>
                                         <a href="category.html">Photography</a>
                                     </span>
                         <span className="entry__meta-date">
-                                        <a href="single-standard.html">Apr 29, 2019</a>
+                                        <a href="single-standard.html">{this.state.articleTime}</a>
                                     </span>
                     </div>
 
                 </div>
                 <div className="entry__excerpt">
                     <p>
-                        {this.getInitialState().data.value}
+                        {this.state.contentIntro}
                     </p>
                 </div>
             </div>
@@ -69,6 +83,6 @@ var WaterfallElements = React.createClass({
         </article>
         );
     }
-});
+}
 
 module.exports = WaterfallElements;

@@ -30,6 +30,6 @@ class AdminMenuPage extends React.Component{
         );
     }
 
-};
+}
 
 module.exports = AdminMenuPage;

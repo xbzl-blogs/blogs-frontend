@@ -17,6 +17,7 @@ var PageRoutes = require('./PageRoutes');//页面路由
 
 var AdminLogin = require('../admin/adminLogin'); //管理员登录页面
 var AdminMenu = require('../admin/adminMenu'); //管理员目录页面
+var AdminCard = require('../admin/adminCard'); //博客卡片页面
 
 
 module.exports = (
@@ -28,6 +29,7 @@ module.exports = (
         <Route path="whiteroadAdminLogin" component={PageRoutes}>
             <Route path="login" component={AdminLogin}/>
             <Route path="menu" component={AdminMenu} />
+            <Route path="card" component={AdminCard} />
         </Route>
     </Route>
 

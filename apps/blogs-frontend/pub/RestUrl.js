@@ -20,10 +20,16 @@ var ADMIN_LOGIN = {
     PATH_MENU:"/whiteroadAdminLogin/menu"
 };
 
+//文章查询
+var CONTENT = {
+    QUERY_LIST : ADDR + ROOT_PATH + "articleController/queryList",
+};
+
 module.exports = {
     URL_HOME,
     ADDR,
     ROOT_PATH,
     BASEHOST_ONLINE_URL,
-    ADMIN_LOGIN
+    ADMIN_LOGIN,
+    CONTENT
 };

@@ -56,7 +56,17 @@ class AdminLogin extends React.Component {
             success: function (result) {
                 if (result && result.success) {
                     if (result.backData === true) {
-                        _this.props.router.push(urls.PATH_MENU);
+                        _this.props.router.push({
+                            path :urls.PATH_MENU,
+                            query:{
+                                type:1
+                            },
+                            state:{
+
+                            }
+                        });
+                    } else {
+                        YYMessage.error("认证失败！！！！！！！！！！！！");
                     }
                 } else {
                     YYMessage.error("错误：" + result.backMsg, 10);
@@ -116,6 +126,6 @@ class AdminLogin extends React.Component {
 
         );
     }
-};
+}
 
 module.exports = AdminLogin;
