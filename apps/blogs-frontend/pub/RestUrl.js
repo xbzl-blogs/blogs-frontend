@@ -11,6 +11,10 @@ var ADDR = "http://localhost:8080";
 // 后端服务项目名
 var ROOT_PATH = "/blogs-web/";
 
+var ROOT_IMAGE_PATH = "/blogs-image/";
+
+var IMAGE_PATH = ADDR + ROOT_IMAGE_PATH;
+
 //管理员登录
 var ADMIN_LOGIN = {
     LOGIN_INIT : ADDR + ROOT_PATH + "PasswordController/insertInit",
@@ -31,5 +35,6 @@ module.exports = {
     ROOT_PATH,
     BASEHOST_ONLINE_URL,
     ADMIN_LOGIN,
-    CONTENT
+    CONTENT,
+    IMAGE_PATH
 };

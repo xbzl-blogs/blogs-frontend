@@ -11,7 +11,7 @@ import {Link} from "react-router";
 
 var React = require('react');
 var $ = require('jquery');
-var YYMessage = require('../pub/YYMessage');
+var YYMessage = require('../pub/message/YYMessage');
 require('./css/style.css');
 require('./js/index');
 

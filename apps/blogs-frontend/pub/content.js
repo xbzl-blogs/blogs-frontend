@@ -10,7 +10,7 @@
 
 var React = require('react');
 var $ = require('jquery');
-var WaterfallElements = require('./waterfallElements');
+var WaterfallElements = require('./waterfallElements/waterfallElements');
 
 var urls = require('../pub/RestUrl').CONTENT;
 
