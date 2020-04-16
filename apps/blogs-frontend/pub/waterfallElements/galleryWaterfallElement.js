@@ -40,7 +40,6 @@ class GalleryWaterfallElement extends React.Component{
     }
 
     render () {
-        debugger
         return(<article className="masonry__brick entry format-gallery animate-this">
 
             <div className="entry__thumb slider">

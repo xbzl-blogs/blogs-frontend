@@ -12,8 +12,8 @@ import {Link} from "react-router";
 var React = require('react');
 var $ = require('jquery');
 var YYMessage = require('../pub/message/YYMessage');
-require('./css/style.css');
-require('./js/index');
+// require('./css/style.css');
+// require('./js/index');
 
 var urls = require('../pub/RestUrl').ADMIN_LOGIN;
 

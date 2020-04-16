@@ -8,7 +8,7 @@
  *
  */
 import {Link} from "react-router";
-require('./css/menuStyle.less');
+// require('./css/menuStyle.less');
 
 var React = require('react');
 

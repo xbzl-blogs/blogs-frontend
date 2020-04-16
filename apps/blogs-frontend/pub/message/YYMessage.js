@@ -7,7 +7,7 @@
  * 功能：提示功能
  *
  */
-require('./YYMessage.less')
+// require('./YYMessage.less')
 var _require = require('antd'),
     message = _require.message;
 

@@ -14,9 +14,6 @@ import AudioWaterfallElement from './audioWaterfallElement';
 import VideoWaterfallElement from './videoWaterfallElement';
 import LinkWaterfallElement from './linkWaterfallElement';
 import GalleryWaterfallElement from './galleryWaterfallElement';
-import '../../public/css/base.css';
-import '../../public/css/main.css';
-import '../../public/css/vendor.css';
 
 var React = require('react');
 
