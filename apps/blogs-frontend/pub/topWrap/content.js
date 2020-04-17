@@ -22,24 +22,43 @@ const getWaterfallElements = function (_this,waterfallElementsMapData) {
 
     console.log("getWaterfallElements方法被调用，这里加载后端数据进行写入瀑布流元素map！");
 
+    let querySchema = {
+        criterion:{},
+        pageNumber:0,
+        pageSize:20
+    };
+
     $.ajax({
         url: urls.QUERY_LIST,
         async: true,
-        type: 'GET',
+        type: 'POST',
+        data: JSON.stringify(querySchema),
         dataType: "json",
         contentType: 'application/json;charset=utf-8',
         success: function (result) {
             console.log(result);
             if(result && result.success){
                 if(result.backData){
-                    let backData = result.backData;
-                    for (let i in backData){
-                        let data = backData[i];
+                    let content = result.backData.content;
+                    for (let i in content){
+                        let data = content[i];
                         waterfallElementsMapData.push(<WaterfallElements data={data}/>);
                     }
                     _this.setState({
                         haveData:true,
-                        waterfallElementsMapData:waterfallElementsMapData
+                        waterfallElementsMapData:waterfallElementsMapData, //数据集
+                        rowData:{
+                            number:result.backData.number, //当前页-1
+                            size:result.backData.size,    //页大小
+                            totalPages:result.backData.totalPages, //总页数
+                            totalElements:result.backData.totalElements //数据集合计数
+                            // test
+                            // number:47, //当前页-1
+                            // size:20,    //页大小
+                            // totalPages:50, //总页数
+                            // totalElements:1000 //数据集合计数
+                        }
+
                     });
                 }
             }
@@ -359,6 +378,7 @@ class Content extends React.Component{
 
     }
 
+
     render(){
 
         return(
@@ -373,7 +393,7 @@ class Content extends React.Component{
                         </div>
                     </div>
                     {/*页签*/}
-                    <Row />
+                    <Row data={this.state.rowData} />
                 </div>)
         );
     }
