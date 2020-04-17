@@ -32,11 +32,8 @@ class GalleryWaterfallElement extends React.Component{
     }
 
     setImg(){
-        let coverList = this.state.articleCover.split(';').map(cover => (<img src={IMAGE_PATH+cover} />));
-
-        return (<div className="slider__slide">
-            {coverList}
-        </div>);
+        let coverList = this.state.articleCover.split(';').map(cover => (<div className="slider__slide"><img src={IMAGE_PATH+cover} /></div>));
+        return coverList;
     }
 
     render () {

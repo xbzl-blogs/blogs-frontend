@@ -9,12 +9,8 @@
  */
 
 var React = require('react');
-
 var Header = require('./pub/header');
 var Content = require('./pub/content');
-
-
-
 
 class Home extends React.Component{
 
