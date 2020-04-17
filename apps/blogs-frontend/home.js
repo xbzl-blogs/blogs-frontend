@@ -9,8 +9,9 @@
  */
 
 var React = require('react');
-var Header = require('./pub/header');
-var Content = require('./pub/content');
+var Header = require('./pub/topWrap/header');
+var Content = require('./pub/topWrap/content');
+var Footer = require('./pub/topWrap/footer');
 
 class Home extends React.Component{
 
@@ -32,21 +33,12 @@ class Home extends React.Component{
 
             {/*site header
             ================================================== */}
+                {/*头部栏；目录侧边栏*/}
                 <Header />
+                {/*内容 ；瀑布流*/}
                 <Content/>
-
-               /*  footer*/
-                <footer class="s-footer">
-                    <div class="row">
-                        <div class="column large-full footer__content">
-                            <div class="footer__copyright">Copyright &copy; 2019.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></div>
-                        </div>
-                    </div>
-
-                    <div class="go-top">
-                        <a class="smoothscroll" title="Back to Top" href="#top"></a>
-                    </div>
-                </footer>
+                {/*底部栏*/}
+                <Footer/>
             </div></div>
         );
     }

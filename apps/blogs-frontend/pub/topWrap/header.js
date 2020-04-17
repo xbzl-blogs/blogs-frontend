@@ -11,7 +11,7 @@
 import {Link} from "react-router";
 var React = require('react');
 
-var whiteroadBlogsLogoSvg = require('../public/images/whiteroadBlogsLogoSvg.svg');
+var whiteroadBlogsLogoSvg = require('../../public/images/whiteroadBlogsLogoSvg.svg');
 
 const homeOnClick = function () {
     console.log("进入首页点击事件，刷新数据！");
