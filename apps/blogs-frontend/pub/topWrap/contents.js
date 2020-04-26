@@ -69,7 +69,7 @@ const getWaterfallElements = function (_this,waterfallElementsMapData) {
 
 };
 
-class Content extends React.Component{
+class Contents extends React.Component{
 
     // 初始化
     constructor(props){
@@ -92,7 +92,6 @@ class Content extends React.Component{
         var mainJs = (function($) {
 
             "use strict";
-
             var cfg = {
                     scrollDuration : 800, // smoothscroll duration
                     mailChimpURL   : ''   // mailchimp url
@@ -399,4 +398,4 @@ class Content extends React.Component{
     }
 }
 
-module.exports = Content;
+module.exports = Contents;

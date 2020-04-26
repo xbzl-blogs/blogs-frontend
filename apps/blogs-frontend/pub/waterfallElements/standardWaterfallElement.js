@@ -7,7 +7,7 @@
  * 功能：standard标准瀑布流元素
  *
  */
-
+import {Link} from "react-router";
 var React = require('react');
 var {IMAGE_PATH} = require('../RestUrl');
 var data = require('./ArticleDefaultData').DEFAULT_DATA;
@@ -35,9 +35,12 @@ class StandardWaterfallElement extends React.Component{
         return(<article className="masonry__brick entry format-standard animate-this">
 
                 <div className="entry__thumb">
-                    <a href="single-standard.html" className="entry__thumb-link">
+                    <Link className="entry__thumb-link" to={{pathname:"/main/details",state:{data:this.state}}} >
                         <img src={IMAGE_PATH+this.state.articleCover} />
-                    </a>
+                    </Link>
+                    {/*<a href="single-standard.html" className="entry__thumb-link">
+                        <img src={IMAGE_PATH+this.state.articleCover} />
+                    </a>*/}
                 </div>
 
                 <div className="entry__text">
